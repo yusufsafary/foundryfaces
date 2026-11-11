@@ -26,8 +26,15 @@
         var idx = rand(cells.length);
         var ns = 1 + rand(99999);
         wallSeeds[idx] = ns;
-        F.paint(cells[idx], ns);
+        fadeSwap(cells[idx], ns);
       }
+    }
+    function fadeSwap(cv, seed) {
+      cv.style.opacity = "0";
+      setTimeout(function () {
+        F.paint(cv, seed);
+        cv.style.opacity = "1";
+      }, 190);
     }
     setInterval(wallTick, 1800);
     if ("IntersectionObserver" in window) {
@@ -43,22 +50,28 @@
   if (findBtn && finder) {
     findBtn.addEventListener("click", function () {
       findBtn.disabled = true;
+      finder.classList.remove("landed");
+      if (result) result.classList.remove("show");
       var spins = 0;
-      var iv = setInterval(function () {
+      function spin() {
         F.paint(finder, 1 + rand(999999));
         spins += 1;
-        if (spins >= 12) {
-          clearInterval(iv);
+        if (spins >= 13) {
           currentSeed = 1 + rand(11111);
           var tr = F.paint(finder, currentSeed);
           var type = F.TYPES[currentSeed % 20];
           if (result) {
             result.innerHTML = "Face #" + currentSeed.toLocaleString("en-US") +
               " · Type <b>" + type.name.toUpperCase() + "</b> · " + type.note;
+            result.classList.add("show");
           }
+          finder.classList.add("landed");
           findBtn.disabled = false;
+          return;
         }
-      }, 70);
+        setTimeout(spin, 65 + spins * spins * 1.6);
+      }
+      spin();
     });
   }
 

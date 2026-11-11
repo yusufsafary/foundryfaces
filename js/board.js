@@ -14,6 +14,26 @@
 
   function setText(id, txt) { var el = $(id); if (el) el.textContent = txt; }
 
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var tweens = {};
+  function setNum(id, to) {
+    var el = $(id);
+    if (!el) return;
+    if (reduceMotion) { el.textContent = fmt(to); return; }
+    var from = parseInt((el.textContent || "").replace(/[^0-9]/g, ""), 10);
+    if (isNaN(from)) from = 0;
+    if (tweens[id]) cancelAnimationFrame(tweens[id]);
+    var t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 650);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(from + (to - from) * e));
+      if (p < 1) tweens[id] = requestAnimationFrame(step);
+    }
+    tweens[id] = requestAnimationFrame(step);
+  }
+
   function soonMode() {
     setText("b-status", "SOON");
     setText("h-status", "SOON");
@@ -22,9 +42,9 @@
 
   function applyState(minted, open) {
     var left = Math.max(0, SUPPLY - minted);
-    setText("b-minted", fmt(minted));
-    setText("h-minted", fmt(minted));
-    setText("b-left", fmt(left));
+    setNum("b-minted", minted);
+    setNum("h-minted", minted);
+    setNum("b-left", left);
     if (!open) {
       setText("b-status", minted > 0 ? "PAUSED" : "SOON");
       setText("h-status", minted > 0 ? "PAUSED" : "SOON");
