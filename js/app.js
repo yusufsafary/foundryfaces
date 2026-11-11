@@ -4,6 +4,15 @@
   if (!F) return;
   function $(id) { return document.getElementById(id); }
   function rand(n) { return Math.floor(Math.random() * n); }
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function fadePaint(cv, seed, typeIdx) {
+    if (reduceMotion) { F.paint(cv, seed, typeIdx); return; }
+    cv.style.opacity = "0";
+    setTimeout(function () {
+      F.paint(cv, seed, typeIdx);
+      cv.style.opacity = "1";
+    }, 190);
+  }
 
   /* ---- hero wall: 24 living faces, a few re-forge every couple of seconds ---- */
   var wall = $("wall");
@@ -26,15 +35,8 @@
         var idx = rand(cells.length);
         var ns = 1 + rand(99999);
         wallSeeds[idx] = ns;
-        fadeSwap(cells[idx], ns);
+        fadePaint(cells[idx], ns);
       }
-    }
-    function fadeSwap(cv, seed) {
-      cv.style.opacity = "0";
-      setTimeout(function () {
-        F.paint(cv, seed);
-        cv.style.opacity = "1";
-      }, 190);
     }
     setInterval(wallTick, 1800);
     if ("IntersectionObserver" in window) {
@@ -75,9 +77,10 @@
     });
   }
 
-  /* ---- twenty types grid ---- */
+  /* ---- twenty types grid: living faces, re-forged in place ---- */
   var grid = $("types-grid");
   if (grid) {
+    var typeFaces = [];
     F.TYPES.forEach(function (t, i) {
       var card = document.createElement("article");
       card.className = "type-card";
@@ -92,8 +95,30 @@
       td.textContent = t.note;
       card.appendChild(td);
       grid.appendChild(card);
-      F.paint(c, 20 * (61 + i * 7) + i, i);
+      var seed0 = 20 * (61 + i * 7) + i;
+      F.paint(c, seed0, i);
+      var rec = { cv: c, type: i, seed: seed0 };
+      typeFaces.push(rec);
+      card.addEventListener("click", function () {
+        rec.seed = 1 + rand(999999);
+        fadePaint(rec.cv, rec.seed, rec.type);
+      });
     });
+    var gridSeen = false;
+    function typeTick() {
+      if (!gridSeen || document.hidden || reduceMotion) return;
+      for (var k = 0; k < 2; k++) {
+        var rec = typeFaces[rand(typeFaces.length)];
+        rec.seed = 1 + rand(999999);
+        fadePaint(rec.cv, rec.seed, rec.type);
+      }
+    }
+    setInterval(typeTick, 2300);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { gridSeen = en[0].isIntersecting; }, { threshold: 0.02 }).observe(grid);
+    } else {
+      gridSeen = true;
+    }
   }
 
   /* ---- copy buttons ---- */

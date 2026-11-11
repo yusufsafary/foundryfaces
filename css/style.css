@@ -527,3 +527,20 @@ html { scroll-behavior: smooth; }
   #finder-result { transition: none; opacity: 1; transform: none; }
   .wall canvas { transition: none; }
 }
+
+/* ---------- v7: every face on the page is alive ---------- */
+.type-card canvas { transition: opacity .38s ease, transform .35s ease; }
+.type-card { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.type-card:active canvas { transform: scale(.965); }
+
+/* finder face floats gently while idle */
+.finder-face { animation: ff-float 6s ease-in-out infinite; }
+@keyframes ff-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .finder-face { animation: none; }
+  .type-card canvas { transition: none; }
+}
