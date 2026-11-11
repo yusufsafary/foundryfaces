@@ -370,3 +370,65 @@ button, a { touch-action: manipulation; }
   .hero-sub { font-size: 15.5px; }
 }
 .foot-col .fc-note { word-break: normal; }
+
+/* ---------- v4 header: one clean system, phone first ---------- */
+.topnav { order: 1; }
+.pill { order: 2; }
+.x-btn { order: 3; }
+.pill { display: inline-flex; align-items: center; height: 38px; }
+.x-btn { height: 38px; }
+
+@media (max-width: 720px) {
+  .topbar {
+    padding: 11px 16px 0;
+    row-gap: 0;
+    column-gap: 8px;
+  }
+  .brand { font-size: 15px; gap: 7px; padding-bottom: 11px; }
+  .brand .sq { width: 12px; height: 12px; box-shadow: 3px 3px 0 var(--ink); }
+  .pill { order: 1; height: 34px; font-size: 10px; letter-spacing: .05em; padding: 0 8px; margin-left: auto; }
+  .x-btn { order: 2; width: 34px; height: 34px; box-shadow: 2px 2px 0 var(--ink); margin-bottom: 11px; }
+  .pill { margin-bottom: 11px; }
+  /* nav becomes a full-width strip: five links spread evenly, no sideways scroll */
+  .topnav {
+    order: 3;
+    flex: 1 1 100%;
+    margin-left: 0;
+    justify-content: space-between;
+    gap: 0;
+    overflow: visible;
+    border-top: 1px solid var(--line);
+    padding: 9px 0 10px;
+    mask: none;
+    -webkit-mask: none;
+  }
+  .topnav a { font-size: 11px; letter-spacing: .1em; padding: 2px 0; }
+}
+
+/* ---------- v5 header, correct selectors: brand row + even nav strip ---------- */
+.nav { order: 1; }
+@media (max-width: 720px) {
+  html { scroll-padding-top: 104px; }
+  .topbar { padding: 11px 16px 10px; column-gap: 7px; row-gap: 0; }
+  .brand { font-size: 14.5px; gap: 7px; padding-bottom: 0; }
+  .brand .sq { width: 11px; height: 11px; box-shadow: 3px 3px 0 var(--ink); }
+  .pill { order: 1; height: 34px; font-size: 10px; letter-spacing: .04em; padding: 0 8px; margin: 0 0 0 auto; }
+  .x-btn { order: 2; width: 34px; height: 34px; margin-bottom: 0; box-shadow: 2px 2px 0 var(--ink); }
+  .nav {
+    order: 3;
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    margin: 10px 0 0;
+    padding: 9px 0 1px;
+    border-top: 1px solid var(--line);
+    overflow: visible;
+    flex-wrap: nowrap;
+  }
+  .nav a { font-size: 11px; letter-spacing: .08em; padding: 2px 0; white-space: nowrap; }
+  .kicker { font-size: 10.5px; letter-spacing: .1em; }
+}
+@media (max-width: 360px) {
+  .kicker { font-size: 10px; letter-spacing: .07em; }
+}
