@@ -292,3 +292,81 @@ button, a { touch-action: manipulation; }
   .rv { opacity: 1; transform: none; transition: none; }
   .btn, .x-btn, .type-card { transition: none; }
 }
+
+/* ---------- v3 precision pass: sections, proportions, mobile logic ---------- */
+.sec-head { align-items: flex-start; }
+.sec-no { padding-top: 12px; }
+
+/* tiers: fixed geometry, nothing wraps mid-value */
+.tiers table { table-layout: fixed; }
+.tiers th:nth-child(1), .tiers td:nth-child(1) { width: 23%; }
+.tiers th:nth-child(2), .tiers td:nth-child(2) { width: 29%; }
+.tiers th:nth-child(3), .tiers td:nth-child(3) { width: 48%; }
+.tiers td.price { white-space: nowrap; }
+.tiers .rowtag { white-space: nowrap; display: inline-block; }
+
+@media (max-width: 720px) {
+  /* section heads stack: number on its own line, title full width */
+  .sec-head { flex-direction: column; gap: 4px; padding-top: 14px; }
+  .sec-no { padding-top: 0; font-size: 12.5px; }
+  .sec-head h2 { font-size: clamp(30px, 8.8vw, 42px); }
+  .lede { margin-top: 12px; }
+
+  /* kicker stays on one line */
+  .kicker { font-size: 11px; letter-spacing: .13em; gap: 10px; }
+
+  /* finder: compact centered face instead of a giant full-width square */
+  .finder-face { display: flex; justify-content: center; padding: 20px 0 4px; border-bottom: none; }
+  .finder-face canvas { width: 176px; height: 176px; border: 2px solid var(--ink); }
+  .finder-body { padding: 16px 20px 22px; gap: 11px; }
+  .finder-body h2 { font-size: 25px; }
+
+  /* live strip: tidy 2 x 2 grid with correct inner borders */
+  .live-strip { display: grid; grid-template-columns: 1fr 1fr; }
+  .live-strip .cell { border-right: none; padding: 14px 16px; }
+  .live-strip .cell:nth-child(odd) { border-right: 1px solid rgba(244,236,221,.22); }
+  .live-strip .cell:nth-child(n+3) { border-top: 1px solid rgba(244,236,221,.22); }
+  .live-strip .num { font-size: 23px; }
+
+  /* mint board: one compact stat row instead of three tall boxes */
+  .board { grid-template-columns: repeat(3, 1fr); gap: 7px; }
+  .board .cell { padding: 13px 12px; }
+  .board .num { font-size: 20px; }
+  .board .lab { font-size: 9px; letter-spacing: .12em; margin-top: 6px; }
+  .board-note { font-size: 12px; }
+
+  /* facts become compact stat rows */
+  .fact { display: flex; align-items: baseline; gap: 16px; padding: 15px 18px; }
+  .fact .n { font-size: 29px; white-space: nowrap; }
+  .fact .t { margin-top: 0; }
+
+  /* tiers on small screens */
+  .tiers th, .tiers td { padding: 11px 10px; font-size: 13.5px; }
+  .tiers th:nth-child(1), .tiers td:nth-child(1) { width: 26%; }
+  .tiers th:nth-child(2), .tiers td:nth-child(2) { width: 32%; }
+  .tiers th:nth-child(3), .tiers td:nth-child(3) { width: 42%; }
+  .tiers th { font-size: 10.5px; letter-spacing: .12em; }
+  .tiers td.price { font-size: 12.5px; }
+  .tiers .rowtag { font-size: 9.5px; padding: 2px 6px; letter-spacing: .06em; }
+
+  /* prompt head wraps cleanly */
+  .prompt-head { flex-wrap: wrap; }
+  .prompt-body { font-size: 12.5px; max-height: 300px; padding: 15px; }
+
+  /* faq touch proportions */
+  .faq summary { font-size: 14.5px; padding: 16px 18px; }
+  .faq .a { padding: 0 18px 18px; font-size: 14.5px; }
+
+  /* footer: two tidy columns, brand and contracts full width */
+  .foot-in { grid-template-columns: 1fr 1fr; gap: 26px; }
+  .foot-brand { grid-column: 1 / -1; }
+  .foot-in > .foot-col:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 480px) {
+  .type-card { padding: 9px; }
+  .type-card .tn { font-size: 13.5px; flex-wrap: wrap; column-gap: 8px; row-gap: 1px; }
+  .type-card .td { font-size: 12.5px; }
+  .hero-sub { font-size: 15.5px; }
+}
+.foot-col .fc-note { word-break: normal; }

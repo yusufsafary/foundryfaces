@@ -1,7 +1,8 @@
 /* Foundry Faces: client-side pixel face painter.
    Every face is painted from a seed on a 24 x 24 pixel grid.
    Layers: background, shoulders, neck, head, hair or headgear, eyes, mouth, extras.
-   Same seed always paints same face, on this page and in collection art. */
+   Preview painter for this page. Final faces render from on-chain seeds
+   with collection art; type names below are collection types, in contract order. */
 (function () {
   var GRID = 24, PX = 4;
 
@@ -19,25 +20,25 @@
   /* 20 character types. bias fields nudge trait rolls toward a signature look. */
   var TYPES = [
     { name: "Smith",    note: "Hammers first, talks later.", gear: "hardhat" },
-    { name: "Dreamer",  note: "Head in a furnace cloud.", gear: "halo" },
-    { name: "Operator", note: "Runs a night shift console.", gear: "visor" },
-    { name: "Sentinel", note: "Watches a gate, never blinks.", gear: "shades" },
-    { name: "Nomad",    note: "Sleeps wherever a chain stops.", gear: "hood" },
-    { name: "Oracle",   note: "Reads blocks like weather.", gear: "stareyes" },
-    { name: "Tinker",   note: "Fixes agents, bots, and luck.", gear: "cap" },
-    { name: "Foreman",  note: "Runs a loud, honest floor.", gear: "hardhat", beard: true },
-    { name: "Ghost",    note: "Signed one tx, vanished.", gear: "none", pale: true },
-    { name: "Pilot",    note: "Flies mempools at dawn.", gear: "cap" },
-    { name: "Mason",    note: "Lays one brick per block.", gear: "crop" },
-    { name: "Spark",    note: "Youngest fire in a foundry.", gear: "mohawk" },
-    { name: "Keeper",   note: "Guards keys and quiet rooms.", gear: "hood" },
-    { name: "Rover",    note: "Collects stamps from every chain.", gear: "cap" },
-    { name: "Sage",     note: "Old enough to wait out gas wars.", gear: "none", beard: true, eyes: "sleepy" },
     { name: "Welder",   note: "Joins metal and markets alike.", gear: "visor" },
-    { name: "Scout",    note: "First into every new pool.", gear: "antenna" },
-    { name: "Monk",     note: "Mints rarely, holds forever.", gear: "none", eyes: "happy" },
-    { name: "Rebel",    note: "Forks first, apologises never.", gear: "spikes" },
-    { name: "Ancient",  note: "Was here before block one.", gear: "crown", beard: true }
+    { name: "Android",  note: "Runs on blocks, dreams in bytecode.", gear: "antenna", pale: true },
+    { name: "Oracle",   note: "Reads blocks like weather.", gear: "stareyes" },
+    { name: "Foreman",  note: "Runs a loud, honest floor.", gear: "hardhat", beard: true },
+    { name: "Ghost in the Machine", note: "Signed one tx, vanished into a machine.", gear: "none", pale: true },
+    { name: "Caster",   note: "Pours molten metal and hot takes.", gear: "hood" },
+    { name: "Machinist", note: "Keeps every gear on chain turning.", gear: "cap" },
+    { name: "Drone",    note: "Hovers over mempools, reports back.", gear: "antenna" },
+    { name: "Apprentice", note: "Youngest hands on a foundry floor.", gear: "crop" },
+    { name: "Inspector", note: "Checks every weld, trusts no shortcut.", gear: "shades" },
+    { name: "Riveter",  note: "Counts bolts while counting blocks.", gear: "mohawk" },
+    { name: "Synth",    note: "Half signal, half song.", gear: "spikes" },
+    { name: "Golem",    note: "Cast from clay, settled in stone.", gear: "crop" },
+    { name: "Engineer", note: "Draws bridges between chains.", gear: "cap" },
+    { name: "Alchemist", note: "Turns gas fees into gold.", gear: "hood" },
+    { name: "Operator", note: "Runs a night shift console.", gear: "visor" },
+    { name: "Prototype", note: "Version one of something stranger.", gear: "antenna" },
+    { name: "Furnace Keeper", note: "Guards keys and quiet rooms.", gear: "none", beard: true },
+    { name: "Architect", note: "Was drawing plans before block one.", gear: "crown", beard: true }
   ];
 
   function rng(seed) {
