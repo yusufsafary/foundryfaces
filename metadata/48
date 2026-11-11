@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #48",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/48.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Ghost in the Machine"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Clay Pit"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Hollow"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Fringe"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Circuit Lines"
+    }
+  ]
+}

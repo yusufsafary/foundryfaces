@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #98",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/98.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Caster"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Bronze Dark"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "LED"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Mohawk"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Soot Marks"
+    }
+  ]
+}

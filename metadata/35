@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #35",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/35.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Alchemist"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Mythic"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Radiant Gold"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Round"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Hood"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "None"
+    }
+  ]
+}

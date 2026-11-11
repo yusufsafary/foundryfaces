@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #43",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/43.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Golem"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Bronze Dark"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Dot"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Flat Top"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "None"
+    }
+  ]
+}

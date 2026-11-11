@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #72",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/72.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Drone"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Oxblood"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Lens"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Twin Antenna"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Circuit Lines"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #23",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/23.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Apprentice"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Plum Dusk"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Round"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Fringe"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Freckles"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #24",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/24.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Machinist"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Ember Dark"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Round"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Spikes"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Glasses"
+    }
+  ]
+}

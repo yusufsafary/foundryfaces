@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #120",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/120.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Smith"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Bronze Dark"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Sleepy"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Flat Top"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "None"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #17",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/17.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Android"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Deep Slate"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Lens"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Bare"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "None"
+    }
+  ]
+}

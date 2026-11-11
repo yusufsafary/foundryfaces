@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #114",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/114.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Synth"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Bronze Dark"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "LED"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Antenna"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "None"
+    }
+  ]
+}

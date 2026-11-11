@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #63",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/63.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Oracle"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Forge Charcoal"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Sleepy"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Long Locks"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Third Eye"
+    }
+  ]
+}

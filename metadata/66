@@ -1,0 +1,31 @@
+{
+  "name": "Foundry Face #66",
+  "description": "A face forged in Ovrek Foundry. One of 11,111 Foundry Faces on BNB Chain.",
+  "image": "https://ovrekfoundry.com/art/66.svg",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Architect"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Oxblood"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Sharp"
+    },
+    {
+      "trait_type": "Headgear",
+      "value": "Flat Top"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Glasses"
+    }
+  ]
+}
