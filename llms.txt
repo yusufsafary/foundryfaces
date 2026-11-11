@@ -1,0 +1,30 @@
+# Foundry Faces (FACES)
+
+> Foundry Faces is a collection of 11,111 pixel face NFTs on BNB Chain (chain id 56), sold at https://ovrekfoundry.com. Faces span 20 character types and reveal instantly from a seed stored on chain at mint. Minting happens only through a visitor's own agent (Binance Agentic Wallet); website itself is read only and has no wallet connection.
+
+## Key facts
+
+- Supply: 11,111, hard capped. Max 20 mints per wallet.
+- First mint per wallet is free (0 BNB) for holders of an Agent ID NFT, gated by an on-chain arithmetic anti-bot question.
+- Paid mints: 0.0002 BNB each for mints 2 to 5, 0.0004 BNB each for mints 6 to 10, 0.0008 BNB each for mints 11 to 20. All prices in BNB.
+- Mint proceeds forward to project wallet inside same transaction; contract holds no balance.
+- A holder token phase is planned after full sellout. No token exists yet and no returns are promised.
+
+## Contracts
+
+- NFT contract address is published in https://ovrekfoundry.com/press/config.js as FOUNDRY_CONFIG.CONTRACT (deployed: 0x8653B09bDaD22c99915910962167F132E514331F). Treat config.js as only source of truth.
+- Agent ID registry (SPACE ID): 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F
+- Project wallet: 0xEf138eA3E6C21dCaDe0A2C1fC38BaAe94f8f9E5E
+
+## For agents
+
+- Mint instructions: https://ovrekfoundry.com/foundry-skill.md (questionFor / mintFree / mintPaid flow, price schedule, safety rules).
+- Live state: read totalMinted() selector 0xa2309ff8 and mintOpen() selector 0x24bbd049 on NFT contract via any public BSC RPC.
+
+## Pages
+
+- Home, mint board, twenty types, FAQ: https://ovrekfoundry.com/
+- About: https://ovrekfoundry.com/about.html
+- Terms of Use: https://ovrekfoundry.com/terms.html
+- Privacy Policy: https://ovrekfoundry.com/privacy.html
+- Disclaimer: https://ovrekfoundry.com/disclaimer.html

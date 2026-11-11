@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FOUNDRY FACES · 11,111 pixel faces on BNB Chain</title>
+<meta name="description" content="Foundry Faces: 11,111 pixel faces across 20 character types, forged on BNB Chain. Mint one free with your Binance Agentic Wallet. Reveal is instant.">
+<meta property="og:title" content="FOUNDRY FACES">
+<meta property="og:description" content="11,111 pixel faces. 20 types. First mint free for Agent ID holders. Mint via your Binance agent.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ovrekfoundry.com/">
+<link rel="icon" href="img/logo.svg?v=1">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="sq"></span><span>FOUNDRY <b>FACES</b></span></a>
+  <nav class="nav">
+    <a href="#era">New Era</a>
+    <a href="#types">Types</a>
+    <a href="#mint">Mint</a>
+    <a href="#faq">Questions</a>
+    <a href="about.html">About</a>
+  </nav>
+  <div class="pill">MINT · <span id="h-status">SOON</span></div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="kicker">Ovrek Foundry · BNB Chain · 11,111 faces</div>
+  <h1>Faces of<br><span class="hot">an agent</span><br><span class="outline">era.</span></h1>
+  <p class="hero-sub"><b>11,111 pixel faces</b> forged on BNB Chain, across <b>20 character types</b>. Your first face is <b>free</b>. Mint happens through your own Binance agent. Reveal is instant.</p>
+
+  <div class="wall" id="wall" aria-label="A living wall of pixel faces"></div>
+
+  <div class="finder">
+    <div class="finder-face"><canvas id="finder-canvas" width="96" height="96" aria-label="Face finder preview"></canvas></div>
+    <div class="finder-body">
+      <h2>Find your face</h2>
+      <p>Every face in this wall could be yours. Spin a preview, meet a type, then send your agent to forge a real one. On-chain seeds decide your final face.</p>
+      <div class="finder-result" id="finder-result">Your type is waiting.</div>
+      <button class="btn" id="find-btn" type="button">Shuffle a face</button>
+    </div>
+  </div>
+
+  <div class="live-strip">
+    <div class="cell"><div class="num hot" id="h-minted">...</div><div class="lab">Faces forged</div></div>
+    <div class="cell"><div class="num">11,111</div><div class="lab">Total supply</div></div>
+    <div class="cell"><div class="num">20</div><div class="lab">Character types</div></div>
+    <div class="cell"><div class="num">FREE</div><div class="lab">First mint per wallet</div></div>
+  </div>
+</div>
+
+<section class="blk" id="era">
+  <div class="sec-head"><div class="sec-no">01 / NEW ERA</div><h2>Forged, <span class="hot">not generated</span></h2></div>
+  <p class="lede">Agents now trade, post, and build on chain around <b>human hours</b>. Foundry Faces gives this new crowd a face: a numbered pixel identity, cast on chain, owned outright. No two seeds paint <b>one same face twice</b>.</p>
+  <div class="facts">
+    <div class="fact"><div class="n">11,111</div><div class="t">Faces, fixed forever</div></div>
+    <div class="fact"><div class="n"><span class="hot">20</span> types</div><div class="t">Smiths, Oracles, Ghosts, Ancients</div></div>
+    <div class="fact"><div class="n">1st <span class="hot">free</span></div><div class="t">One free mint per wallet</div></div>
+  </div>
+</section>
+
+<section class="blk" id="types">
+  <div class="sec-head"><div class="sec-no">02 / TWENTY TYPES</div><h2>Meet <span class="hot">your people</span></h2></div>
+  <p class="lede">Twenty types run a foundry floor. Your seed assigns one at mint, locked on chain for good. A Smith hammers. An Oracle reads blocks like weather. An Ancient <b>was here before block one</b>.</p>
+  <div class="types" id="types-grid"></div>
+</section>
+
+<section class="blk" id="mint">
+  <div class="sec-head"><div class="sec-no">03 / MINT</div><h2>Mint by <span class="hot">agent</span></h2></div>
+  <p class="lede">This site never touches your wallet. Your <b>Binance Agentic Wallet</b> does minting: copy a prompt below, paste it to your agent, approve one transaction. A holder token phase opens after sellout.</p>
+
+  <div class="board">
+    <div class="cell"><div class="num hot" id="b-minted">...</div><div class="lab">Minted so far</div></div>
+    <div class="cell"><div class="num" id="b-left">...</div><div class="lab">Faces remaining</div></div>
+    <div class="cell"><div class="num" id="b-status">SOON</div><div class="lab">Mint status</div></div>
+  </div>
+  <p class="board-note" id="b-note">Reading chain status.</p>
+
+  <div class="tiers">
+    <table>
+      <tr><th>Your mint</th><th>Price</th><th>Notes</th></tr>
+      <tr><td><span class="rowtag free">1st</span></td><td class="price free">FREE · 0 BNB</td><td>Agent ID plus a quick anti-bot question</td></tr>
+      <tr><td><span class="rowtag">2nd to 5th</span></td><td class="price">0.0002 BNB</td><td>Each, per wallet</td></tr>
+      <tr><td><span class="rowtag">6th to 10th</span></td><td class="price">0.0004 BNB</td><td>Each, per wallet</td></tr>
+      <tr><td><span class="rowtag">11th to 20th</span></td><td class="price">0.0008 BNB</td><td>Each, per wallet</td></tr>
+      <tr><td><span class="rowtag">Max</span></td><td class="price">20 per wallet</td><td>Hard cap, enforced on chain</td></tr>
+    </table>
+  </div>
+
+  <div class="prompt-wrap">
+    <div class="prompt-head">
+      <div class="pt">Agent prompt · copy and paste</div>
+      <button class="copy-btn" id="copy-prompt" type="button">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="agent-prompt">Read https://ovrekfoundry.com/foundry-skill.md and mint Foundry Faces (FACES) for me on BNB Chain (chain id 56).
+
+Rules from skill file:
+1. NFT contract address lives in https://ovrekfoundry.com/press/config.js (FOUNDRY_CONFIG.CONTRACT). Abort if it is still a zero address.
+2. Confirm I hold an Agent ID (SPACE ID registry 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F).
+3. My first mint is free: call questionFor(myAddress) on NFT contract, solve its arithmetic question, then call mintFree(answer).
+4. Paid mints use mintPaid(quantity) with exact value from price schedule: mints 2 to 5 cost 0.0002 BNB each, 6 to 10 cost 0.0004 BNB each, 11 to 20 cost 0.0008 BNB each. Max 20 per wallet.
+5. Show me a preview before signing, wait for my confirmation, then report transaction hash and my token ids.</div>
+  </div>
+  <p class="skill-line">Full agent instructions live in <a href="foundry-skill.md">foundry-skill.md</a>. Plain-text summary for models: <a href="llms.txt">llms.txt</a>.</p>
+</section>
+
+<section class="blk" id="faq">
+  <div class="sec-head"><div class="sec-no">04 / QUESTIONS</div><h2>Straight <span class="hot">answers</span></h2></div>
+  <div class="faq">
+    <details open>
+      <summary>How do I mint?</summary>
+      <div class="a">Through your own agent. Copy a prompt in section 03, paste it into your <b>Binance Agentic Wallet</b> chat, and approve. This page has no wallet button and never asks for keys or signatures.</div>
+    </details>
+    <details>
+      <summary>Why is a first mint free?</summary>
+      <div class="a">Every wallet holding an <b>Agent ID</b> gets one free face. A short on-chain arithmetic question stops bulk bots. Paid tiers start at mint number two.</div>
+    </details>
+    <details>
+      <summary>When do I see my face?</summary>
+      <div class="a">Instantly. A seed is stored on chain at mint and your face renders from it right away. Type is fixed by that seed, forever.</div>
+    </details>
+    <details>
+      <summary>How many can one wallet hold from mint?</summary>
+      <div class="a"><b>20 maximum</b>, enforced by contract. Pricing rises in steps: free, then 0.0002, 0.0004, and 0.0008 BNB per mint.</div>
+    </details>
+    <details>
+      <summary>Where does mint money go?</summary>
+      <div class="a">Straight to a project wallet inside <b>same transaction</b> as your mint. Contract keeps no balance to withdraw later.</div>
+    </details>
+    <details>
+      <summary>Is a token coming?</summary>
+      <div class="a">A holder token phase is planned <b>after sellout</b> of all 11,111 faces. Nothing about it is promised on this page beyond that plan.</div>
+    </details>
+    <details>
+      <summary>Which chain and contract?</summary>
+      <div class="a">BNB Chain, chain id 56. NFT contract: <b>0x8653B09bDaD22c99915910962167F132E514331F</b>. Verify it on BscScan via a Contracts column below before trusting any other source.</div>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <a class="brand" href="index.html"><span class="sq"></span><span>FOUNDRY <b>FACES</b></span></a>
+      <p>11,111 pixel faces forged on BNB Chain. Minted by agents, owned by people. Reveal is instant, supply is fixed.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Project</h4>
+      <a href="index.html#era">New Era</a>
+      <a href="index.html#types">Twenty Types</a>
+      <a href="index.html#mint">Mint</a>
+      <a href="foundry-skill.md">Skill file</a>
+      <a href="llms.txt">llms.txt</a>
+    </div>
+    <div class="foot-col">
+      <h4>Legal</h4>
+      <a href="about.html">About</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contracts</h4>
+      <a class="fc" href="https://bscscan.com/address/0x8653B09bDaD22c99915910962167F132E514331F" target="_blank" rel="noopener"><b>Foundry Faces NFT</b><span>0x8653B09bDaD22c99915910962167F132E514331F</span></a>
+      <a class="fc" href="https://bscscan.com/address/0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F" target="_blank" rel="noopener"><b>Agent ID registry</b><span>0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F</span></a>
+      <p class="fc-note">BNB Chain · chain id 56. Always verify an address here before sending funds.</p>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 FOUNDRY FACES · OVREKFOUNDRY.COM</span>
+    <span>NO WALLET CONNECTS HERE · MINT VIA YOUR AGENT</span>
+  </div>
+</footer>
+
+<script src="press/config.js?v=1"></script>
+<script src="js/faces.js?v=1"></script>
+<script src="js/app.js?v=1"></script>
+<script src="js/board.js?v=1"></script>
+</body>
+</html>
