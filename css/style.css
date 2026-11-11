@@ -243,3 +243,52 @@ footer.site {
 }
 @media (max-width: 900px) { .foot-in { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .foot-in { grid-template-columns: 1fr; } }
+
+/* ---------- v2 upgrade: smooth + mobile first ---------- */
+html { scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
+* { -webkit-tap-highlight-color: transparent; }
+button, a { touch-action: manipulation; }
+.nav a, .foot-col a, .copy-btn, .x-btn { transition: color .18s ease, background .18s ease, opacity .18s ease, transform .18s ease; }
+
+.topbar { flex-wrap: wrap; row-gap: 6px; }
+.x-btn {
+  width: 40px; height: 40px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 2px solid var(--ink); background: var(--card); color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink); text-decoration: none;
+}
+.x-btn:hover { background: var(--ink); color: var(--paper); transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--ink); }
+.x-btn:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+
+/* mobile: nav becomes a scrollable second row instead of disappearing */
+@media (max-width: 720px) {
+  .topbar { gap: 8px 10px; padding-top: 10px; padding-bottom: 10px; }
+  .brand { font-size: 16px; gap: 8px; }
+  .brand .sq { width: 13px; height: 13px; box-shadow: 3px 3px 0 var(--ink); }
+  .pill { margin-left: auto; font-size: 10.5px; letter-spacing: .06em; padding: 6px 9px; }
+  .x-btn { width: 36px; height: 36px; box-shadow: 2px 2px 0 var(--ink); }
+  .nav {
+    display: flex; order: 3; flex-basis: 100%;
+    overflow-x: auto; gap: 22px; padding: 6px 2px 2px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { white-space: nowrap; padding: 6px 0; font-size: 12px; }
+  .wall { gap: 7px; }
+  .finder { box-shadow: 6px 6px 0 var(--ink); }
+  .prompt-wrap { box-shadow: 6px 6px 0 var(--molten); }
+  .btn { width: 100%; justify-content: center; min-height: 54px; }
+  .copy-btn { min-height: 42px; }
+  .foot-base { padding-bottom: calc(22px + env(safe-area-inset-bottom)); }
+}
+
+/* reveal on scroll (JS adds .rv, observer adds .in) */
+.rv { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.22, .8, .3, 1); }
+.rv.in { opacity: 1; transform: none; }
+
+@media (hover: none) { .type-card:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv { opacity: 1; transform: none; transition: none; }
+  .btn, .x-btn, .type-card { transition: none; }
+}

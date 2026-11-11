@@ -1,4 +1,5 @@
 # Foundry Faces (FACES)
+X (Twitter): https://x.com/ovrekfoundry (@ovrekfoundry)
 
 > Foundry Faces is a collection of 11,111 pixel face NFTs on BNB Chain (chain id 56), sold at https://ovrekfoundry.com. Faces span 20 character types and reveal instantly from a seed stored on chain at mint. Minting happens only through a visitor's own agent (Binance Agentic Wallet); website itself is read only and has no wallet connection.
 

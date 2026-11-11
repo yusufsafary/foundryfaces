@@ -17,15 +17,23 @@
       wallSeeds.push(s);
       F.paint(cv, s);
     }
-    setInterval(function () {
+    var wallLive = true, wallSeen = true;
+    function wallTick() {
+      if (!wallLive || !wallSeen || document.hidden) return;
       var cells = wall.children;
-      for (var k = 0; k < 3; k++) {
+      var n = window.innerWidth <= 560 ? 2 : 3;
+      for (var k = 0; k < n; k++) {
         var idx = rand(cells.length);
         var ns = 1 + rand(99999);
         wallSeeds[idx] = ns;
         F.paint(cells[idx], ns);
       }
-    }, 1800);
+    }
+    setInterval(wallTick, 1800);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { wallSeen = en[0].isIntersecting; }, { threshold: 0.02 }).observe(wall);
+    }
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) wallLive = false;
   }
 
   /* ---- find your face ---- */
@@ -81,10 +89,32 @@
     if (!btn || !src) return;
     btn.addEventListener("click", function () {
       var t = src.textContent;
-      if (navigator.clipboard) navigator.clipboard.writeText(t);
+      try {
+        if (navigator.clipboard) navigator.clipboard.writeText(t);
+        else {
+          var ta = document.createElement("textarea");
+          ta.value = t; document.body.appendChild(ta); ta.select();
+          document.execCommand("copy"); ta.remove();
+        }
+      } catch (err) { /* clipboard unavailable */ }
       btn.textContent = "Copied";
       setTimeout(function () { btn.textContent = label; }, 1600);
     });
   }
   wireCopy("copy-prompt", "agent-prompt", "Copy prompt");
+
+  /* ---- reveal on scroll: gentle rise-in for sections and cards ---- */
+  if ("IntersectionObserver" in window) {
+    var rvEls = document.querySelectorAll(".blk, .fact, .type-card, .board, .tiers, .prompt-wrap, .faq, .finder");
+    var rvIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); rvIO.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -4% 0px" });
+    rvEls.forEach(function (el, i) {
+      el.classList.add("rv");
+      if (el.classList.contains("type-card")) el.style.transitionDelay = (i % 5) * 45 + "ms";
+      rvIO.observe(el);
+    });
+  }
 })();
