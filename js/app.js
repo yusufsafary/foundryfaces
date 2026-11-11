@@ -140,6 +140,7 @@
     });
   }
   wireCopy("copy-prompt", "agent-prompt", "Copy prompt");
+  wireCopy("copy-prompt-claim", "claim-prompt", "Copy prompt");
 
   /* ---- reveal on scroll: gentle rise-in for sections and cards ---- */
   if ("IntersectionObserver" in window) {

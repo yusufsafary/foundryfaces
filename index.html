@@ -20,6 +20,7 @@
     <a href="#era">New Era</a>
     <a href="#types">Types</a>
     <a href="#mint">Mint</a>
+    <a href="#claim">Claim</a>
     <a href="#faq">Questions</a>
     <a href="about.html">About</a>
   </nav>
@@ -73,7 +74,7 @@
 
 <section class="blk" id="mint">
   <div class="sec-head"><div class="sec-no">03 / MINT</div><h2>Mint by <span class="hot">agent</span></h2></div>
-  <p class="lede">This site never touches your wallet. Your <b>Binance Agentic Wallet</b> does minting: copy a prompt below, paste it to your agent, approve one transaction. A holder token phase opens after sellout.</p>
+  <p class="lede">This site never touches your wallet. Your <b>Binance Agentic Wallet</b> does minting: copy a prompt below, paste it to your agent, approve one transaction. Holder claims for $OVF are open now, see section 04.</p>
 
   <div class="board">
     <div class="cell"><div class="num hot" id="b-minted">...</div><div class="lab">Minted so far</div></div>
@@ -110,8 +111,46 @@ Rules from skill file:
   <p class="skill-line">Full agent instructions live in <a href="foundry-skill.md">foundry-skill.md</a>. Plain-text summary for models: <a href="llms.txt">llms.txt</a>.</p>
 </section>
 
+<section class="blk" id="claim">
+  <div class="sec-head"><div class="sec-no">04 / CLAIM $OVF</div><h2>Claim your <span class="hot">OVF</span></h2></div>
+  <p class="lede">Every forged face carries <b>$OVF</b>, paid by class locked in its seed. Claim <b>once per face</b> through your agent for a flat claim fee in BNB, forwarded to a project wallet inside same transaction. Claiming never burns your face: it stays in your wallet, fully yours.</p>
+
+  <div class="board">
+    <div class="cell"><div class="num hot" id="c-claimed">...</div><div class="lab">Faces claimed</div></div>
+    <div class="cell"><div class="num" id="c-pool">...</div><div class="lab">OVF in pool</div></div>
+    <div class="cell"><div class="num" id="c-status">SOON</div><div class="lab">Claim status</div></div>
+  </div>
+  <p class="board-note" id="c-note">Reading claim status.</p>
+
+  <div class="tiers">
+    <table>
+      <tr><th>Face class</th><th>Claim per face</th><th>Notes</th></tr>
+      <tr><td><span class="rowtag">Common</span></td><td class="price">99,999 OVF</td><td>About 70 in every 100 faces</td></tr>
+      <tr><td><span class="rowtag">Rare</span></td><td class="price">299,999 OVF</td><td>About 27 in every 100 faces</td></tr>
+      <tr><td><span class="rowtag">Mythic</span></td><td class="price">2,999,999 OVF</td><td>About 3 in every 100 faces</td></tr>
+      <tr><td><span class="rowtag">Fee</span></td><td class="price">0.0002439 BNB</td><td>Per claim, forwarded in same transaction</td></tr>
+    </table>
+  </div>
+
+  <div class="prompt-wrap">
+    <div class="prompt-head">
+      <div class="pt">Agent prompt · copy and paste</div>
+      <button class="copy-btn" id="copy-prompt-claim" type="button">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="claim-prompt">Read https://ovrekfoundry.com/foundry-skill.md and claim $OVF for my Foundry Faces on BNB Chain (chain id 56).
+
+Rules from skill file:
+1. Claim contract address lives in https://ovrekfoundry.com/press/config.js (FOUNDRY_CONFIG.CLAIM). Token address is FOUNDRY_CONFIG.TOKEN. Abort if either is a zero address.
+2. List every Foundry Face token id I own on NFT contract FOUNDRY_CONFIG.CONTRACT.
+3. For each id, read claimAmount(id) and claimedById(id) on claim contract. Skip ids already claimed.
+4. Call claim(id) on claim contract with exactly 0.0002439 BNB attached (243902439024390 wei) per face, one call per face.
+5. Show me a preview before signing, wait for my confirmation, then report transaction hashes and OVF amounts claimed.</div>
+  </div>
+  <p class="skill-line">Token: <b>$OVF 0xB3696718E4716f248846AAB962EF2db19AAe76eC</b> · Claim: <b>0x4E777f71d1E46065F2073845B0a92b8DDF9b60a3</b>. Verify both in a Contracts column below.</p>
+</section>
+
 <section class="blk" id="faq">
-  <div class="sec-head"><div class="sec-no">04 / QUESTIONS</div><h2>Straight <span class="hot">answers</span></h2></div>
+  <div class="sec-head"><div class="sec-no">05 / QUESTIONS</div><h2>Straight <span class="hot">answers</span></h2></div>
   <div class="faq">
     <details open>
       <summary>How do I mint?</summary>
@@ -134,8 +173,8 @@ Rules from skill file:
       <div class="a">Straight to a project wallet inside <b>same transaction</b> as your mint. Contract keeps no balance to withdraw later.</div>
     </details>
     <details>
-      <summary>Is a token coming?</summary>
-      <div class="a">A holder token phase is planned <b>after sellout</b> of all 11,111 faces. Nothing about it is promised on this page beyond that plan.</div>
+      <summary>What is $OVF and how do I claim it?</summary>
+      <div class="a">$OVF is a holder token for Foundry Faces, live now. Every face claims once, paid by class: <b>Common 99,999</b>, <b>Rare 299,999</b>, <b>Mythic 2,999,999</b> OVF. Copy a claim prompt in section 04, paste it to your agent, and pay a flat <b>0.0002439 BNB</b> claim fee per face. Your face is never burned by claiming.</div>
     </details>
     <details>
       <summary>Which chain and contract?</summary>
@@ -156,6 +195,7 @@ Rules from skill file:
       <a href="index.html#era">New Era</a>
       <a href="index.html#types">Twenty Types</a>
       <a href="index.html#mint">Mint</a>
+      <a href="index.html#claim">Claim $OVF</a>
       <a href="foundry-skill.md">Skill file</a>
       <a href="llms.txt">llms.txt</a>
       <a href="https://x.com/ovrekfoundry" target="_blank" rel="noopener">X · @ovrekfoundry</a>
@@ -170,6 +210,8 @@ Rules from skill file:
     <div class="foot-col">
       <h4>Contracts</h4>
       <a class="fc" href="https://bscscan.com/address/0x8653B09bDaD22c99915910962167F132E514331F" target="_blank" rel="noopener"><b>Foundry Faces NFT</b><span>0x8653B09bDaD22c99915910962167F132E514331F</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xB3696718E4716f248846AAB962EF2db19AAe76eC" target="_blank" rel="noopener"><b>$OVF token</b><span>0xB3696718E4716f248846AAB962EF2db19AAe76eC</span></a>
+      <a class="fc" href="https://bscscan.com/address/0x4E777f71d1E46065F2073845B0a92b8DDF9b60a3" target="_blank" rel="noopener"><b>OVF claim</b><span>0x4E777f71d1E46065F2073845B0a92b8DDF9b60a3</span></a>
       <a class="fc" href="https://bscscan.com/address/0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F" target="_blank" rel="noopener"><b>Agent ID registry</b><span>0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F</span></a>
       <p class="fc-note">BNB Chain · chain id 56. Always verify an address here before sending funds.</p>
     </div>
@@ -180,9 +222,9 @@ Rules from skill file:
   </div>
 </footer>
 
-<script src="press/config.js?v=3"></script>
+<script src="press/config.js?v=4"></script>
 <script src="js/faces.js?v=3"></script>
-<script src="js/app.js?v=5"></script>
-<script src="js/board.js?v=4"></script>
+<script src="js/app.js?v=6"></script>
+<script src="js/board.js?v=5"></script>
 </body>
 </html>

@@ -9,17 +9,19 @@ X (Twitter): https://x.com/ovrekfoundry (@ovrekfoundry)
 - First mint per wallet is free (0 BNB) for holders of an Agent ID NFT, gated by an on-chain arithmetic anti-bot question.
 - Paid mints: 0.0002 BNB each for mints 2 to 5, 0.0004 BNB each for mints 6 to 10, 0.0008 BNB each for mints 11 to 20. All prices in BNB.
 - Mint proceeds forward to project wallet inside same transaction; contract holds no balance.
-- A holder token phase is planned after full sellout. No token exists yet and no returns are promised.
+- Holder token $OVF is live. Every face claims OVF once by class: Common 99,999, Rare 299,999, Mythic 2,999,999 OVF, for a flat 0.0002439 BNB claim fee per face forwarded to project wallet in same transaction. Claims are open. Claiming never burns a face.
 
 ## Contracts
 
 - NFT contract address is published in https://ovrekfoundry.com/press/config.js as FOUNDRY_CONFIG.CONTRACT (deployed: 0x8653B09bDaD22c99915910962167F132E514331F). Treat config.js as only source of truth.
+- $OVF token: 0xB3696718E4716f248846AAB962EF2db19AAe76eC (config FOUNDRY_CONFIG.TOKEN). Claim contract: 0x4E777f71d1E46065F2073845B0a92b8DDF9b60a3 (config FOUNDRY_CONFIG.CLAIM).
 - Agent ID registry (SPACE ID): 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F
 - Project wallet: 0xEf138eA3E6C21dCaDe0A2C1fC38BaAe94f8f9E5E
 
 ## For agents
 
 - Mint instructions: https://ovrekfoundry.com/foundry-skill.md (questionFor / mintFree / mintPaid flow, price schedule, safety rules).
+- Claim instructions: same skill file, $OVF claim section (claimAmount / claimedById / claim flow, exact claim fee).
 - Live state: read totalMinted() selector 0xa2309ff8 and mintOpen() selector 0x24bbd049 on NFT contract via any public BSC RPC.
 
 ## Pages

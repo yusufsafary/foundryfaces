@@ -60,6 +60,48 @@
     }
   }
 
+  var CLAIM = CFG.CLAIM || "";
+  function fmtPool(weiHex) {
+    var ovf = parseInt(weiHex, 16) / 1e18;
+    if (ovf >= 1e9) return (ovf / 1e9).toFixed(2).replace(/\.?0+$/, "") + "B";
+    if (ovf >= 1e6) return (ovf / 1e6).toFixed(1).replace(/\.0$/, "") + "M";
+    return fmt(Math.round(ovf));
+  }
+  function applyClaim(claimed, open, poolHex) {
+    setNum("c-claimed", claimed);
+    var el = $("c-pool");
+    if (el) el.textContent = fmtPool(poolHex);
+    setText("c-status", open ? "OPEN" : "SOON");
+    setText("c-note", open
+      ? "Claims are open. Send your Binance agent a claim prompt below, one call per face."
+      : "Claims are not open yet. Watch this board.");
+  }
+  function raceClaim() {
+    if (!CLAIM || CLAIM.toLowerCase() === ZERO) return;
+    var calls = [
+      { jsonrpc: "2.0", id: 1, method: "eth_call", params: [{ to: CLAIM, data: "0xd54ad2a1" }, "latest"] }, // totalClaimed()
+      { jsonrpc: "2.0", id: 2, method: "eth_call", params: [{ to: CLAIM, data: "0x4b8bcb58" }, "latest"] }, // claimOpen()
+      { jsonrpc: "2.0", id: 3, method: "eth_call", params: [{ to: CLAIM, data: "0x96365d44" }, "latest"] }  // poolBalance()
+    ];
+    var done = false;
+    RPCS.forEach(function (url) {
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(calls)
+      }).then(function (r) { return r.json(); }).then(function (j) {
+        if (done || !j || !Array.isArray(j)) return;
+        var c = j.find(function (x) { return x.id === 1; });
+        var o = j.find(function (x) { return x.id === 2; });
+        var p = j.find(function (x) { return x.id === 3; });
+        if (c && c.result && c.result !== "0x") {
+          done = true;
+          applyClaim(parseInt(c.result, 16), !!(o && o.result && parseInt(o.result, 16) === 1), p && p.result ? p.result : "0x0");
+        }
+      }).catch(function () {});
+    });
+  }
+
   function raceRead() {
     if (!NFT || NFT.toLowerCase() === ZERO) { soonMode(); return; }
     var calls = [
@@ -92,5 +134,6 @@
 
   if (!NFT || NFT.toLowerCase() === ZERO) soonMode();
   raceRead();
-  setInterval(raceRead, 30000);
+  raceClaim();
+  setInterval(function () { raceRead(); raceClaim(); }, 30000);
 })();

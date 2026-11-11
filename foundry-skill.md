@@ -61,6 +61,39 @@ If mintOpen() is 0, stop and tell user mint is not open.
 3. Never attach more value than schedule requires. Never exceed 20 total.
 4. Wait for receipt. Report transaction hash and new token ids.
 
+## Holder claim: $OVF (claims open)
+
+Every minted face claims $OVF once. Token and claim contracts are published in
+config.js as `FOUNDRY_CONFIG.TOKEN` ($OVF) and `FOUNDRY_CONFIG.CLAIM`
+(FoundryClaim). If either is a zero address, stop and tell user.
+
+Claim rules (enforced on chain):
+
+- Amount follows face class (`classOf` on NFT contract, also readable as
+  `claimAmount(tokenId)` on claim contract):
+  - Common: 99,999 OVF
+  - Rare: 299,999 OVF
+  - Mythic: 2,999,999 OVF
+- Once per tokenId, paid to whoever owns that face at claim time. Claiming
+  never burns or moves the NFT.
+- Flat claim fee: exactly 0.0002439 BNB (243902439024390 wei) per claim call,
+  forwarded to project wallet inside same transaction. Read `claimFee()`
+  selector 0x99d32fc4 on claim contract and attach exactly that value.
+- Claims must come from an externally owned account directly
+  (contract callers are rejected on chain).
+
+Claim flow:
+
+1. Read `claimOpen()` selector 0x4b8bcb58 on claim contract. If 0, stop and
+   tell user claims are not open.
+2. List token ids user owns on NFT contract.
+3. For each id, read `claimedById(uint256)` selector 0x4c80ee12 and
+   `claimAmount(uint256)` selector 0x23b221a0 on claim contract. Skip ids
+   already claimed or with amount 0.
+4. Call `claim(uint256 tokenId)` selector 0x379607f5, payable, one call per
+   face, attaching exactly claimFee() in wei.
+5. Wait for each receipt. Report transaction hashes and OVF amounts.
+
 ## Safety
 
 - Preview every call first. Show user: contract address, function, quantity,
