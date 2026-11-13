@@ -27,7 +27,7 @@ X (Twitter): https://x.com/ovrekfoundry (@ovrekfoundry)
 ## Pages
 
 - Home, mint board, twenty types, claim board, FAQ: https://ovrekfoundry.com/
-- Swap ($OVF routes, pool status): https://ovrekfoundry.com/swap.html — no $OVF liquidity pool is live yet; routes are prefilled and marked Pool · Soon.
+- Swap ($OVF routes, pool status): https://ovrekfoundry.com/swap.html — no $OVF liquidity pool is live yet; pools open on Uniswap and PancakeSwap on 19 November 2026; routes are prefilled.
 - About: https://ovrekfoundry.com/about.html
 - Terms of Use: https://ovrekfoundry.com/terms.html
 - Privacy Policy: https://ovrekfoundry.com/privacy.html
